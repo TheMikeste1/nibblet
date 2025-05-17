@@ -1,0 +1,68 @@
+[package]
+name = "nibblet"
+version = "0.1.0"
+edition = "2024"
+description = "Byte-focussed alternative ser/de derives"
+repository = "https://github.com/TheMikeste1/discrimin-ant"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+keywords = [
+  "marshalling",
+  "serialization",
+  "deserialization",
+  "no_std",
+  "bytes",
+]
+categories = ["encoding", "no-std", "no-std::no-alloc"]
+exclude = [".github/"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1"
+quote = "1.0"
+syn = { version = "2", features = ["full"] }
+
+[dev-dependencies]
+assert_matches = { version = "1" }
+bincode = { version = "2", features = ["serde"] }
+discrimin-ant = { version = "0.1.1" }
+discrimin-ant-proc = { version = "0.1.1" }
+pretty_assertions = "1.4.1"
+serde = { version = "1", default-features = false, features = ["derive"] }
+
+[lints.rust]
+# See also https://doc.rust-lang.org/rustc/lints/index.html
+missing_docs = "warn"
+unsafe_op_in_unsafe_fn = "deny"
+
+[lints.clippy]
+# See also https://rust-lang.github.io/rust-clippy/master/index.html
+# Lint groups
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
+cargo = { level = "warn", priority = -1 }
+# Individual lints
+alloc_instead_of_core = "warn"
+arithmetic_side_effects = "warn"
+cargo_common_metadata = "allow"
+cfg_not_test = "deny"
+dbg_macro = "warn"
+default_trait_access = "allow"
+empty_drop = "warn"
+exit = "deny"
+expect_used = "warn"
+filetype_is_file = "warn"
+float_cmp_const = "warn"
+host_endian_bytes = "warn"
+infinite_loop = "warn"
+items_after_statements = "allow"
+lossy_float_literal = "deny"
+missing_docs_in_private_items = "warn"
+module_name_repetitions = "warn"
+multiple_crate_versions = "allow"
+must_use_candidate = "allow"
+option_if_let_else = "warn"
+unwrap_used = "warn"
